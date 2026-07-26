@@ -1,2 +1,2 @@
 import "./restaurant.css";
-console.log("Hello")
+import "./img.js"
