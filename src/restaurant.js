@@ -1,2 +1,3 @@
 import "./restaurant.css";
-import "./img.js"
+import "./code.js"
+

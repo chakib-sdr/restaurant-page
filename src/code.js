@@ -12,6 +12,7 @@ export const about = document.querySelector("#about")
 export const home = document.querySelector(".home")
 export const display = document.querySelector(".display")
 export const information = document.querySelector(".information")
+export const time = document.querySelector(".time")
 img.className = "img"
 img.src = forkIcon
 containersvg.appendChild(img)
@@ -41,8 +42,10 @@ menu.addEventListener("click", () =>{
     home.style.display = "flex"
     display.style.display = "block"
     information.style.display = "none"
+    time.style.display = "none"
 })
 about.addEventListener("click", () =>{
+    time.style.display = "block"
     home.style.display = "none"
     display.style.display = "none"
     information.style.display = "block"
