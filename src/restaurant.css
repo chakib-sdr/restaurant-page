@@ -189,3 +189,12 @@ span{
     font-weight: bolder;
     font-size: 20px;
 }
+.contactcontainer{
+    display: none;
+    background-color: #FAF3E0;
+}
+.contactcontainer > p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 50px;
+}

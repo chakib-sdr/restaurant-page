@@ -13,6 +13,8 @@ export const home = document.querySelector(".home")
 export const display = document.querySelector(".display")
 export const information = document.querySelector(".information")
 export const time = document.querySelector(".time")
+export const contact = document.querySelector("#contact")
+export const contactcontainer = document.querySelector(".contactcontainer")
 img.className = "img"
 img.src = forkIcon
 containersvg.appendChild(img)
@@ -43,10 +45,23 @@ menu.addEventListener("click", () =>{
     display.style.display = "block"
     information.style.display = "none"
     time.style.display = "none"
+    contactcontainer.style.display = "none"
 })
 about.addEventListener("click", () =>{
     time.style.display = "block"
     home.style.display = "none"
     display.style.display = "none"
     information.style.display = "block"
+    contactcontainer.style.display = "none"
+})
+contact.addEventListener("click", () =>{
+    contactcontainer.style.display = "flex"
+    contactcontainer.style.flexDirection = "column"
+    contactcontainer.style.justifyContent = "center"
+    contactcontainer.style.alignItems = "center"
+    
+    home.style.display = "none"
+    display.style.display = "none"
+    information.style.display = "none"
+    time.style.display = "none"
 })

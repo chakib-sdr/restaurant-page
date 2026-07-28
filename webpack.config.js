@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: "development",   // <-- Put it here
+  mode: "development",
 
   entry: "./src/restaurant.js",
 
@@ -13,9 +13,12 @@ module.exports = {
   },
 
   devServer: {
-    static: "./dist",
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
     open: true,
     hot: true,
+    watchFiles: ["src/**/*"],
   },
 
   plugins: [
@@ -29,6 +32,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
       },
     ],
   },
