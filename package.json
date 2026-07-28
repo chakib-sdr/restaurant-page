@@ -1,16 +1,21 @@
 {
   "name": "restaurant",
   "version": "1.0.0",
+  "homepage": "https://chakib-sdr.github.io/restaurant-page/",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "build": "webpack",
+  "deploy": "gh-pages -d dist",
+  "start": "webpack serve",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^7.1.4",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.8",
     "style-loader": "^4.0.0",
