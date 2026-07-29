@@ -68,10 +68,12 @@ button:hover{
 }
 .containerimg{
     display: flex;
-    gap: 10px;
+    gap: 20px;
+    width: 700px;
+    height: 400px;
 }
 .homeimg{
-    width: 80%;
+    width: 100%;
     height: 100%;
     display: block;
 }

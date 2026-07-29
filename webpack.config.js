@@ -1,43 +1,61 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = {
-  mode: "development",
+module.exports = (env, argv) => {
+  // Check if we are running the local development server
+  const isDevelopment = argv.mode !== "production";
 
-  entry: "./src/index.js",
+  return {
+    // Dynamically choose mode based on the CLI flag passed (defaults to development)
+    mode: argv.mode || "development",
 
-  output: {
-  filename: "main.js",
-  path: path.resolve(__dirname, "dist"),
-  publicPath: "/restaurant-page/",
-  clean: true,
-},
+    entry: "./src/index.js",
 
-  devServer: {
-    static: {
-      directory: path.join(__dirname, "dist"),
+    output: {
+      filename: "main.js",
+      path: path.resolve(__dirname, "dist"),
+      publicPath: isDevelopment ? "/" : "/restaurant-page/",
+      clean: true,
     },
-    open: true,
-    hot: true,
-    watchFiles: ["src/**/*"],
-  },
 
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: "./src/index.html",
-    }),
-  ],
+    devServer: {
+      static: {
+        directory: path.join(__dirname, "dist"),
+      },
+      hot: false,
+      liveReload: true,
+      open: true,
+      watchFiles: {
+        paths: ["src/**/*"],
+        options: {
+          usePolling: true,
+          interval: 500,
+        },
+      },
+    },
 
-  module: {
-    rules: [
-      {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource",
-      },
+    watchOptions: {
+      poll: 500,
+      ignored: /node_modules/,
+    },
+
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: "./src/index.html",
+      }),
     ],
-  },
+
+    module: {
+      rules: [
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: "asset/resource",
+        },
+      ],
+    },
+  };
 };

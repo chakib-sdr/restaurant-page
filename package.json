@@ -4,12 +4,13 @@
   "homepage": "https://chakib-sdr.github.io/restaurant-page/",
   "description": "",
   "main": "index.js",
- "scripts": {
-  "build": "webpack",
-  "deploy": "gh-pages -d dist",
-  "start": "webpack serve",
+  "scripts": {
+  "build": "webpack --mode production",
+  "deploy": "npm run build && gh-pages -d dist",
+  "start": "webpack serve --mode development",
   "test": "echo \"Error: no test specified\" && exit 1"
 },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
